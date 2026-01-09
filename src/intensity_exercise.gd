@@ -28,7 +28,9 @@ func play() -> void:
 	for i in range(0, 9):
 		Input.vibrate_handheld( 100 * int(DurationComponent.total_duration / 9), IntensityComponent.get_intensity(i) )
 		await Util.wait( DurationComponent.total_duration / 9 )
-	await FeedbackComponent.finished
+	if FeedbackComponent.is_playing:
+		await FeedbackComponent.finished
 	FeedbackComponent.play_indeterminate( CooldownComponent.total_duration )
-	await FeedbackComponent.finished
+	if FeedbackComponent.is_playing_indeterminate:
+		await FeedbackComponent.finished_playing_indeterminate
 	finished.emit()

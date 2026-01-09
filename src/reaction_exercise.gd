@@ -31,7 +31,9 @@ func play() -> void:
 		var time: int = randi_range( 0, int(total_duration) )
 		await Util.wait( time )
 		total_duration -= time
-	await FeedbackComponent.finished
+	if FeedbackComponent.is_playing:
+		await FeedbackComponent.finished
 	FeedbackComponent.play_indeterminate( CooldownComponent.total_duration )
-	await FeedbackComponent.finished
+	if FeedbackComponent.is_playing_indeterminate:
+		await FeedbackComponent.finished_indeterminate
 	finished.emit()

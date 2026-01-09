@@ -55,9 +55,11 @@ func play() -> void:
 				await Util.wait( .4  )
 				Input.vibrate_handheld(100 )
 				await Util.wait( .4  )
-				Input.vibrate_handheld(100 )
+				Input.vibrate_handheld(100)
 				await Util.wait( .4 )
-	await FeeedbackComponent.finished
+	if FeeedbackComponent.is_playing:
+		await FeeedbackComponent.finished_playing
 	FeeedbackComponent.play_indeterminate(CooldownComponent.total_duration)
-	await FeeedbackComponent.finished
+	if FeeedbackComponent.is_playing_indeterminate:
+		await FeeedbackComponent.finished_playing_indeterminate
 	finished.emit()
