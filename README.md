@@ -1,3 +1,5 @@
+![open-coach](https://github.com/user-attachments/assets/b4700b42-09e0-42bf-a8b1-9756c7d4a6d7)
+
 # 🤜 **Open-Coach** 🤛
 
 ☢️ In development ☢️
