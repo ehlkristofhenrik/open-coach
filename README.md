@@ -26,6 +26,8 @@ For now, there are:
 - 🎶 Rhythmic Exercise - Uses phone vibration to set the rhythm ( eg.: Double-Jab to the body, pause, then deliver a massive Hook! )
 - ❤️‍🔥 Intensity Exercise - Uses phone vibration to set intensity ( eg.: How hard you pull on a rope )
 - 🫰 Reaction Exercise - Randomly gives you a task ( eg.: Run until coach says do 10 pushups )
+You can play them like you would play music, and the best thing is it does not block your audio.
+So you can listen to music or 🎙️ podcasts in the background whilst exercising. 
 
 The ⚙️ settings view is a JSON editor, where you can edit a lot of small details.
 
@@ -34,7 +36,8 @@ The ⚙️ settings view is a JSON editor, where you can edit a lot of small det
 - 🛜 Offline
 - 🔐 Private and Secure-ish
 - 👐 Open Source
-- 👨‍💻 and Fully Customizable!
+- 🎧 Works well with background audio
+- 👨‍💻 Fully Customizable!
 
 ## Gallery
 
