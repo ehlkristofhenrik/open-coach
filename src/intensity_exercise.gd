@@ -29,8 +29,11 @@ func play() -> void:
 		Input.vibrate_handheld( 100 * int(DurationComponent.total_duration / 9), IntensityComponent.get_intensity(i) )
 		await Util.wait( DurationComponent.total_duration / 9 )
 	if FeedbackComponent.is_playing:
-		await FeedbackComponent.finished
+		await FeedbackComponent.finished_playing
 	FeedbackComponent.play_indeterminate( CooldownComponent.total_duration )
 	if FeedbackComponent.is_playing_indeterminate:
 		await FeedbackComponent.finished_playing_indeterminate
 	finished.emit()
+
+func get_exercise_name() -> String:
+	return NameComponent.get_name_string()

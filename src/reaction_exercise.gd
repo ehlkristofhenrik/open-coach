@@ -28,12 +28,16 @@ func play() -> void:
 	FeedbackComponent.play( DurationComponent.total_duration )
 	var total_duration: float = DurationComponent.total_duration
 	while total_duration > 0:
-		var time: int = randi_range( 0, int(total_duration) )
+		var time: int = randi_range( UtteranceComponent.get_min(), UtteranceComponent.get_max() )
+		Util.tts_speak(UtteranceComponent.get_random())
 		await Util.wait( time )
 		total_duration -= time
 	if FeedbackComponent.is_playing:
-		await FeedbackComponent.finished
+		await FeedbackComponent.finished_playing
 	FeedbackComponent.play_indeterminate( CooldownComponent.total_duration )
 	if FeedbackComponent.is_playing_indeterminate:
-		await FeedbackComponent.finished_indeterminate
+		await FeedbackComponent.finished_playing_indeterminate
 	finished.emit()
+
+func get_exercise_name() -> String:
+	return NameComponent.get_name_string()

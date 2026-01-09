@@ -14,23 +14,32 @@ func _ready() -> void:
 	finished_playing_indeterminate.connect(func(): is_playing_indeterminate = false)
 
 func play( duration: float ) -> void:
-	is_playing = true
-	Progress.value = 100
 	var tween: Tween = create_tween()
+	Progress.value = 100
+	is_playing = true
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_STOP)
 	tween.tween_property(Progress, "value", 0, duration)
-	tween.parallel().tween_method(func(time): Display.text = Util.time_to_str(time), duration, 0, duration)
+	tween.parallel().tween_method(func(time): 
+		if Display.text != Util.time_to_str(time):
+			if int(time) % Conf.config['tts']['announce_every'] == 0:
+				Util.tts_speak(Util.time_to_tts(time))
+			elif int(time) <= Conf.config['tts']['announce_last']:
+				Util.tts_speak(Util.time_to_tts(time))
+			Display.text = Util.time_to_str(time)
+		, duration, 0, duration)
 	tween.chain().tween_callback(func():
 		finished_playing.emit()
 	)
 
+
 func play_indeterminate( duration: float ) -> void:
-	is_playing_indeterminate = true
 	var tween: Tween = create_tween()
+	is_playing_indeterminate = true
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_STOP)
 	tween.chain().tween_callback( func(): Progress.indeterminate = true )
 	tween.tween_method( func(time): Display.text = Util.time_to_str(time), duration, 0, duration )
 	tween.chain().tween_callback(func():
 		Progress.indeterminate = false
 		finished_playing_indeterminate.emit()
+		DisplayServer.beep()
 	)

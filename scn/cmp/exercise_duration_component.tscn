@@ -18,9 +18,11 @@ size_flags_horizontal = 3
 [node name="Minutes" type="SpinBox" parent="_DurationContainer" groups=["DisableInput"]]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 59.0
 suffix = "min"
 
 [node name="Seconds" type="SpinBox" parent="_DurationContainer" groups=["DisableInput"]]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 59.0
 suffix = "sec"

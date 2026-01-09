@@ -63,3 +63,6 @@ func play() -> void:
 	if FeeedbackComponent.is_playing_indeterminate:
 		await FeeedbackComponent.finished_playing_indeterminate
 	finished.emit()
+
+func get_exercise_name() -> String:
+	return NameComponent.get_name_string()

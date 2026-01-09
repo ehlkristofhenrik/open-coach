@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://kaajqjlxn8se"]
+
+[ext_resource type="Texture2D" uid="uid://br326ickcnqxe" path="res://img/Karate_Male.png" id="1_a8a34"]
+[ext_resource type="Script" uid="uid://b4d7ndmjqfanl" path="res://src/main_tab.gd" id="1_xv2xc"]
+
+[sub_resource type="Curve" id="Curve_315pe"]
+_limits = [0.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 4), 0.0, 0.0, 0, 0, Vector2(0.53157896, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n2tm1"]
+curve = SubResource("Curve_315pe")
+
+[sub_resource type="Curve" id="Curve_k3l4p"]
+_limits = [0.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1.3852141), 0.0, 0.0, 0, 0, Vector2(0.9842106, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4r6w6"]
+curve = SubResource("Curve_k3l4p")
+
+[sub_resource type="Curve" id="Curve_rqnb2"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.27894735, 2.8599222), 0.0, 0.0, 0, 0, Vector2(0.9631579, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k3l4p"]
+curve = SubResource("Curve_rqnb2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_315pe"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 30.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 53.969997
+linear_accel_max = 53.969997
+linear_accel_curve = SubResource("CurveTexture_n2tm1")
+radial_accel_min = 87.299995
+radial_accel_max = 99.99999
+radial_accel_curve = SubResource("CurveTexture_4r6w6")
+scale_curve = SubResource("CurveTexture_k3l4p")
+color = Color(1.353256, 1.353256, 1.353256, 1)
+turbulence_enabled = true
+
+[node name="MainTab" type="TabBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xv2xc")
+metadata/_tab_index = 0
+
+[node name="Button" type="TextureButton" parent="."]
+modulate = Color(0.3167846, 0.31678477, 0.31678468, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_a8a34")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="Center" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ParticleEmitter" type="GPUParticles2D" parent="Center"]
+amount = 40
+randomness = 1.0
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_315pe")
+
+[node name="Quote" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUOTE"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="QuoteBackground" type="ColorRect" parent="Quote"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

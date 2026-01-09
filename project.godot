@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="CouchCoach"
+config/name="OpenCoach"
 run/main_scene="uid://cdelgb5ffs0gp"
 config/features=PackedStringArray("4.5", "Mobile")
+run/max_fps=30
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -37,4 +39,4 @@ DisableInput="Input controls that need to be disabled"
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.10872068, 0.1087208, 0.10872076, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

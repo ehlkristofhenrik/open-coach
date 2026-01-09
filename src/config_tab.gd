@@ -1,9 +1,13 @@
 extends TabBar
 
-@onready var Content: QRCodeRect = $_Body/Content
+@onready var Content: CodeEdit = $_Body/Content
 
 func _ready() -> void:
-	Content.set_data( JSON.stringify( Conf.config ) )
+	Content.text = JSON.stringify( Conf.config, "\t" )
 
 func _on_copy_pressed() -> void:
 	DisplayServer.clipboard_set( JSON.stringify( Conf.config ) )
+
+
+func _on_save_pressed() -> void:
+	Conf.config = JSON.parse_string(Content.text)

@@ -46,13 +46,21 @@ func from_data( data: Dictionary ) -> void:
 		instance.from_data( child_data )
 
 func play() -> void:
-	Util.disable_input( true )
-	var exercises = Children.get_children()
-	if Shuffle.button_pressed:
-		exercises.shuffle()
-	for child: Exercise in exercises:
-		child.play()
-		await child.finished
+	Util.tts_speak(NameComponent.get_name_string())
+	await Util.tts_finished
+	var first_run: bool = true
+	while Loop.button_pressed or first_run:
+		first_run = false
+		Util.disable_input( true )
+		var exercises = Children.get_children()
+		if Shuffle.button_pressed:
+			exercises.shuffle()
+		for child: Exercise in exercises:
+			child.expand()
+			Util.tts_speak(child.get_exercise_name())
+			await Util.tts_finished
+			child.play()
+			await child.finished
 	Play.set_pressed_no_signal( false )
 	Util.disable_input( false )
 
@@ -74,6 +82,7 @@ func _on_stop_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_quit_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scn/main.tscn")
 
 func _on_save_pressed() -> void:

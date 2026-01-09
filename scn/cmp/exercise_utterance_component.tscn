@@ -1,16 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7vhoeppl7e11"]
+[gd_scene load_steps=4 format=3 uid="uid://c7vhoeppl7e11"]
 
+[ext_resource type="Script" uid="uid://nxkiyr1c8bx3" path="res://src/exercise_utterance_component.gd" id="1_nwx47"]
 [ext_resource type="Texture2D" uid="uid://1pkjy6upjra2" path="res://img/icon/icon_boxing_glove.png" id="1_pcxua"]
+[ext_resource type="Texture2D" uid="uid://yhclpqiijp11" path="res://img/icon/icon_linear.png" id="2_petyl"]
 
-[node name="_ExerciseUtteranceComponent" type="HBoxContainer"]
+[node name="_ExerciseUtteranceComponent" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nwx47")
 
-[node name="_Pattern" type="TextureRect" parent="."]
+[node name="_Range" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="_Range" type="TextureRect" parent="_Range"]
+layout_mode = 2
+texture = ExtResource("2_petyl")
+
+[node name="Min" type="SpinBox" parent="_Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 60.0
+value = 1.0
+suffix = "min"
+
+[node name="Max" type="SpinBox" parent="_Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 60.0
+value = 1.0
+suffix = "max"
+
+[node name="_Pattern" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="_Pattern" type="TextureRect" parent="_Pattern"]
 layout_mode = 2
 tooltip_text = "Random combo mode"
 texture = ExtResource("1_pcxua")
 stretch_mode = 3
 
-[node name="Pattern" type="LineEdit" parent="."]
+[node name="Pattern" type="LineEdit" parent="_Pattern"]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Pattern"
+placeholder_text = "A,B;C,D"
+
+[connection signal="value_changed" from="_Range/Min" to="." method="_on_min_value_changed"]
+[connection signal="value_changed" from="_Range/Max" to="." method="_on_max_value_changed"]
