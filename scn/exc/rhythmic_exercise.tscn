@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://c67tdy5p3q7cb"]
+
+[ext_resource type="Script" uid="uid://b8450x00kqwq3" path="res://src/rhythmic_exercise.gd" id="1_axxx5"]
+[ext_resource type="FoldableGroup" uid="uid://diccdc6glths2" path="res://res/foldable_group.tres" id="2_cbweb"]
+[ext_resource type="PackedScene" uid="uid://cyjnyglvrw7hn" path="res://scn/cmp/exercise_name_component.tscn" id="3_cx654"]
+[ext_resource type="PackedScene" uid="uid://dqbejuphkhvhh" path="res://scn/cmp/exercise_cooldown_component.tscn" id="4_v4tew"]
+[ext_resource type="PackedScene" uid="uid://8xim3yhl73o3" path="res://scn/cmp/exercise_duration_loops_component.tscn" id="4_ysx47"]
+[ext_resource type="Texture2D" uid="uid://ck3nfu6g4b7ih" path="res://img/icon/icon_music_note.png" id="5_u0u5r"]
+[ext_resource type="PackedScene" uid="uid://sg82jt6vi08a" path="res://scn/cmp/exercise_rhythm_component.tscn" id="6_v4tew"]
+[ext_resource type="PackedScene" uid="uid://dgyyjmtjlog3a" path="res://scn/cmp/exercise_feedback_component.tscn" id="7_ysx47"]
+
+[node name="RhythmicExercise" type="FoldableContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/expanded_arrow = ExtResource("5_u0u5r")
+theme_override_icons/expanded_arrow_mirrored = ExtResource("5_u0u5r")
+theme_override_icons/folded_arrow = ExtResource("5_u0u5r")
+theme_override_icons/folded_arrow_mirrored = ExtResource("5_u0u5r")
+folded = true
+foldable_group = ExtResource("2_cbweb")
+script = ExtResource("1_axxx5")
+
+[node name="_Body" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="_ExerciseNameComponent" parent="_Body" instance=ExtResource("3_cx654")]
+layout_mode = 2
+
+[node name="_ExerciseDurationLoopsComponent" parent="_Body" instance=ExtResource("4_ysx47")]
+layout_mode = 2
+
+[node name="_ExerciseCooldownComponent" parent="_Body" instance=ExtResource("4_v4tew")]
+layout_mode = 2
+
+[node name="_ExerciseRhythmComponent" parent="_Body" instance=ExtResource("6_v4tew")]
+layout_mode = 2
+
+[node name="_ExerciseFeedbackComponent" parent="_Body" instance=ExtResource("7_ysx47")]
+layout_mode = 2

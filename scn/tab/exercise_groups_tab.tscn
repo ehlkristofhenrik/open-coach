@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx148mh6lg0yu"]
+
+[ext_resource type="Texture2D" uid="uid://c06guk05otmmu" path="res://img/icon/icon_add.png" id="1_gjbkt"]
+[ext_resource type="Script" uid="uid://dmshu0rafs6r1" path="res://src/exercise_groups_tab.gd" id="1_s1idv"]
+
+[node name="ExerciseGroupsTab" type="TabBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s1idv")
+
+[node name="_Body" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Add" type="Button" parent="_Body" groups=["DisableInput"]]
+layout_mode = 2
+icon = ExtResource("1_gjbkt")
+
+[node name="_ScrollContainer" type="ScrollContainer" parent="_Body"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="_Children" type="VBoxContainer" parent="_Body/_ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="_Body/Add" to="." method="_on_add_pressed"]

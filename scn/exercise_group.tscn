@@ -1,0 +1,123 @@
+[gd_scene load_steps=17 format=3 uid="uid://cmcagwby2pyhg"]
+
+[ext_resource type="Script" uid="uid://cwj6nx4f326ej" path="res://src/exercise_group.gd" id="1_1n2wj"]
+[ext_resource type="Texture2D" uid="uid://c06guk05otmmu" path="res://img/icon/icon_add.png" id="1_gjbkt"]
+[ext_resource type="Script" uid="uid://qq7wrw5ffmws" path="res://src/exercise_name_component.gd" id="2_2nm2a"]
+[ext_resource type="Texture2D" uid="uid://b4p70nebfxfig" path="res://img/icon/icon_back.png" id="2_huntf"]
+[ext_resource type="Texture2D" uid="uid://ck3nfu6g4b7ih" path="res://img/icon/icon_music_note.png" id="2_hvjd6"]
+[ext_resource type="Texture2D" uid="uid://ds33j7nm7uajp" path="res://img/icon/icon_area_chart.png" id="3_1n2wj"]
+[ext_resource type="Texture2D" uid="uid://cowdfk4qwdcp8" path="res://img/icon/icon_label.png" id="3_huntf"]
+[ext_resource type="Texture2D" uid="uid://bj3nbbx7imp3u" path="res://img/icon/icon_bolt.png" id="6_k4ywr"]
+[ext_resource type="Texture2D" uid="uid://c2jn1vhes7fcn" path="res://img/icon/icon_repeat_off.png" id="10_vp72d"]
+[ext_resource type="Texture2D" uid="uid://jkhmg44ahcyv" path="res://img/icon/icon_repeat_on.png" id="11_52b24"]
+[ext_resource type="Texture2D" uid="uid://d3ji27ox1r55x" path="res://img/icon/icon_shuffle_off.png" id="12_5puai"]
+[ext_resource type="Texture2D" uid="uid://bxshrtr1ok658" path="res://img/icon/icon_shufle_on.png" id="13_aawkn"]
+[ext_resource type="Texture2D" uid="uid://8jagutk0ttn" path="res://img/icon/icon_play.png" id="15_2nm2a"]
+[ext_resource type="Texture2D" uid="uid://co4i8wt3xwumn" path="res://img/icon/icon_save.png" id="16_aawkn"]
+[ext_resource type="Texture2D" uid="uid://c82hqxu33visb" path="res://img/icon/icon_pause.png" id="16_huntf"]
+[ext_resource type="Texture2D" uid="uid://drg3j1o2n3aew" path="res://img/icon/icon_stop.png" id="17_cfrs2"]
+
+[node name="ExerciseGroup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1n2wj")
+
+[node name="_Body" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quit" type="Button" parent="_Body"]
+layout_mode = 2
+text = "Quit"
+icon = ExtResource("2_huntf")
+alignment = 0
+
+[node name="_ExerciseNameComponent" type="HBoxContainer" parent="_Body"]
+layout_mode = 2
+script = ExtResource("2_2nm2a")
+
+[node name="_Name" type="TextureRect" parent="_Body/_ExerciseNameComponent" groups=["DisableInput"]]
+layout_mode = 2
+texture = ExtResource("3_huntf")
+stretch_mode = 3
+
+[node name="Name" type="LineEdit" parent="_Body/_ExerciseNameComponent" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="_Actions" type="HBoxContainer" parent="_Body"]
+layout_mode = 2
+alignment = 1
+
+[node name="Add" type="MenuButton" parent="_Body/_Actions" groups=["DisableInput"]]
+layout_mode = 2
+icon = ExtResource("1_gjbkt")
+flat = false
+item_count = 3
+popup/item_0/text = "Rhythmic"
+popup/item_0/icon = ExtResource("2_hvjd6")
+popup/item_0/id = 0
+popup/item_1/text = "Intensity"
+popup/item_1/icon = ExtResource("3_1n2wj")
+popup/item_1/id = 1
+popup/item_2/text = "Reaction"
+popup/item_2/icon = ExtResource("6_k4ywr")
+popup/item_2/id = 2
+
+[node name="Loop" type="TextureButton" parent="_Body/_Actions" groups=["DisableInput"]]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("10_vp72d")
+texture_pressed = ExtResource("11_52b24")
+stretch_mode = 3
+
+[node name="Shuffle" type="TextureButton" parent="_Body/_Actions" groups=["DisableInput"]]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("12_5puai")
+texture_pressed = ExtResource("13_aawkn")
+stretch_mode = 3
+
+[node name="Play" type="TextureButton" parent="_Body/_Actions"]
+process_mode = 3
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("15_2nm2a")
+texture_pressed = ExtResource("16_huntf")
+stretch_mode = 3
+
+[node name="Stop" type="TextureButton" parent="_Body/_Actions"]
+process_mode = 3
+layout_mode = 2
+texture_normal = ExtResource("17_cfrs2")
+stretch_mode = 3
+
+[node name="Save" type="TextureButton" parent="_Body/_Actions" groups=["DisableInput"]]
+layout_mode = 2
+texture_normal = ExtResource("16_aawkn")
+stretch_mode = 3
+
+[node name="_ScrollContainer" type="ScrollContainer" parent="_Body"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="_Children" type="VBoxContainer" parent="_Body/_ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="_Body/Quit" to="." method="_on_quit_pressed"]
+[connection signal="text_changed" from="_Body/_ExerciseNameComponent/Name" to="_Body/_ExerciseNameComponent" method="_on_name_text_changed"]
+[connection signal="toggled" from="_Body/_Actions/Play" to="." method="_on_play_toggled"]
+[connection signal="pressed" from="_Body/_Actions/Stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="_Body/_Actions/Save" to="." method="_on_save_pressed"]

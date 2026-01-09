@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://8xim3yhl73o3"]
+
+[ext_resource type="Script" uid="uid://ckob1ck8s48px" path="res://src/exercise_duration_loops_component.gd" id="1_8qd62"]
+[ext_resource type="Texture2D" uid="uid://dgi8ep23qxah5" path="res://img/icon/icon_stopwatch.png" id="1_rv40e"]
+[ext_resource type="Texture2D" uid="uid://ysst8mvy05wb" path="res://img/icon/icon_laps.png" id="2_8qd62"]
+
+[node name="_ExerciseDurationLoopsComponent" type="HBoxContainer"]
+script = ExtResource("1_8qd62")
+
+[node name="_Selector" type="TextureButton" parent="." groups=["DisableInput"]]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("1_rv40e")
+texture_pressed = ExtResource("2_8qd62")
+stretch_mode = 3
+
+[node name="_DurationContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Minutes" type="SpinBox" parent="_DurationContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 59.0
+suffix = "min"
+
+[node name="Seconds" type="SpinBox" parent="_DurationContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 59.0
+suffix = "sec"
+
+[node name="_LoopsContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Loops" type="SpinBox" parent="_LoopsContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+suffix = "x"
+
+[connection signal="toggled" from="_Selector" to="." method="_on_selector_toggled"]

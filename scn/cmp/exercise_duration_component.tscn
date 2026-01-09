@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://700etnuwal6q"]
+
+[ext_resource type="Script" uid="uid://dfst5pbv5e24v" path="res://src/exercise_duration_component.gd" id="1_jbe8l"]
+[ext_resource type="Texture2D" uid="uid://dgi8ep23qxah5" path="res://img/icon/icon_stopwatch.png" id="2_jbe8l"]
+
+[node name="_ExerciseDurationComponent" type="HBoxContainer"]
+script = ExtResource("1_jbe8l")
+
+[node name="_Duration" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_jbe8l")
+stretch_mode = 3
+
+[node name="_DurationContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Minutes" type="SpinBox" parent="_DurationContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+suffix = "min"
+
+[node name="Seconds" type="SpinBox" parent="_DurationContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+suffix = "sec"

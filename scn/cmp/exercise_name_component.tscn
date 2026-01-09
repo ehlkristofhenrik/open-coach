@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyjnyglvrw7hn"]
+
+[ext_resource type="Script" uid="uid://qq7wrw5ffmws" path="res://src/exercise_name_component.gd" id="1_wooeo"]
+[ext_resource type="Texture2D" uid="uid://cowdfk4qwdcp8" path="res://img/icon/icon_label.png" id="1_xqq2v"]
+[ext_resource type="Texture2D" uid="uid://b7uci23ljnvxb" path="res://img/icon/icon_delete.png" id="2_js0h4"]
+
+[node name="_ExerciseNameComponent" type="HBoxContainer"]
+offset_right = 96.0
+offset_bottom = 59.0
+script = ExtResource("1_wooeo")
+
+[node name="_Name" type="TextureRect" parent="." groups=["DisableInput"]]
+layout_mode = 2
+texture = ExtResource("1_xqq2v")
+stretch_mode = 3
+
+[node name="Name" type="LineEdit" parent="." groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Delete" type="Button" parent="." groups=["DisableInput"]]
+layout_mode = 2
+icon = ExtResource("2_js0h4")
+
+[connection signal="text_changed" from="Name" to="." method="_on_name_text_changed"]
+[connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]

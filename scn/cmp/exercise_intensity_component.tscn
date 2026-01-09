@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://dky14nm5poe6t"]
+
+[ext_resource type="Texture2D" uid="uid://ds33j7nm7uajp" path="res://img/icon/icon_area_chart.png" id="1_054wv"]
+[ext_resource type="Script" uid="uid://jlb3jxo2nkgq" path="res://src/exercise_intensity_component.gd" id="1_u0sm5"]
+
+[node name="_ExerciseIntensityComponent" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+script = ExtResource("1_u0sm5")
+
+[node name="_Intensity" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_054wv")
+stretch_mode = 3
+
+[node name="Intensity1" type="VSlider" parent="." groups=["DisableInput"]]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Intensity2" type="VSlider" parent="." groups=["DisableInput"]]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Intensity3" type="VSlider" parent="." groups=["DisableInput"]]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Intensity4" type="VSlider" parent="." groups=["DisableInput"]]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Intensity5" type="VSlider" parent="." groups=["DisableInput"]]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Intensity6" type="VSlider" parent="." groups=["DisableInput"]]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Intensity7" type="VSlider" parent="." groups=["DisableInput"]]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Intensity8" type="VSlider" parent="." groups=["DisableInput"]]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Intensity9" type="VSlider" parent="." groups=["DisableInput"]]
+layout_mode = 2
+max_value = 1.0
+step = 0.1

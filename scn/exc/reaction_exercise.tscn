@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhds1qfm2ulaf"]
+
+[ext_resource type="Script" uid="uid://bjvj6jgjxcl5d" path="res://src/reaction_exercise.gd" id="1_5v3h2"]
+[ext_resource type="PackedScene" uid="uid://cyjnyglvrw7hn" path="res://scn/cmp/exercise_name_component.tscn" id="2_us17c"]
+[ext_resource type="PackedScene" uid="uid://700etnuwal6q" path="res://scn/cmp/exercise_duration_component.tscn" id="3_8er5b"]
+[ext_resource type="PackedScene" uid="uid://dqbejuphkhvhh" path="res://scn/cmp/exercise_cooldown_component.tscn" id="4_58g64"]
+[ext_resource type="PackedScene" uid="uid://c7vhoeppl7e11" path="res://scn/cmp/exercise_utterance_component.tscn" id="4_aow2a"]
+[ext_resource type="PackedScene" uid="uid://dgyyjmtjlog3a" path="res://scn/cmp/exercise_feedback_component.tscn" id="4_s51u5"]
+[ext_resource type="Script" uid="uid://nxkiyr1c8bx3" path="res://src/exercise_utterance_component.gd" id="5_58g64"]
+
+[node name="ReactionExercise" type="FoldableContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5v3h2")
+
+[node name="_Body" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="_ExerciseNameComponent" parent="_Body" instance=ExtResource("2_us17c")]
+layout_mode = 2
+
+[node name="_ExerciseDurationComponent" parent="_Body" instance=ExtResource("3_8er5b")]
+layout_mode = 2
+
+[node name="_ExerciseCooldownComponent" parent="_Body" instance=ExtResource("4_58g64")]
+layout_mode = 2
+
+[node name="_ExerciseUtteranceComponent" parent="_Body" instance=ExtResource("4_aow2a")]
+layout_mode = 2
+script = ExtResource("5_58g64")
+
+[node name="_ExerciseFeedbackComponent" parent="_Body" instance=ExtResource("4_s51u5")]
+layout_mode = 2

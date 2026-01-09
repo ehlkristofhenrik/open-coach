@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgyyjmtjlog3a"]
+
+[ext_resource type="Script" uid="uid://ciiurpa3jnpa5" path="res://src/exercise_feedback_component.gd" id="1_d6som"]
+
+[node name="_ExerciseFeedbackComponent" type="VBoxContainer"]
+offset_right = 49.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+script = ExtResource("1_d6som")
+
+[node name="Display" type="Label" parent="."]
+layout_mode = 2
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="Progress" type="ProgressBar" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+show_percentage = false

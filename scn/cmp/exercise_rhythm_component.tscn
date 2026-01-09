@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://sg82jt6vi08a"]
+
+[ext_resource type="Script" uid="uid://dd6dlrd27bt4j" path="res://src/exercise_rhythm_component.gd" id="1_oohtj"]
+[ext_resource type="Texture2D" uid="uid://ck3nfu6g4b7ih" path="res://img/icon/icon_music_note.png" id="1_x6612"]
+[ext_resource type="FontFile" uid="uid://dqfn5dxghe5l6" path="res://fnt/NotoMusic-Regular.ttf" id="2_oohtj"]
+
+[node name="_ExerciseRhythmComponent" type="HBoxContainer"]
+script = ExtResource("1_oohtj")
+
+[node name="_Rhythm" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_x6612")
+stretch_mode = 3
+
+[node name="_RhythmContainer" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Rhythm1" type="OptionButton" parent="_RhythmContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_oohtj")
+selected = 0
+item_count = 5
+popup/item_0/text = "𝄽"
+popup/item_0/id = 0
+popup/item_1/text = "𝅘𝅥"
+popup/item_1/id = 1
+popup/item_2/text = "𝅘𝅥 𝅘𝅥"
+popup/item_2/id = 2
+popup/item_3/text = "𝅘𝅥 𝅘𝅥 𝅘𝅥"
+popup/item_3/id = 3
+popup/item_4/text = "𝅘𝅥 𝅘𝅥 𝅘𝅥 𝅘𝅥"
+popup/item_4/id = 4
+
+[node name="Rhythm2" type="OptionButton" parent="_RhythmContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_oohtj")
+selected = 0
+item_count = 5
+popup/item_0/text = "𝄽"
+popup/item_0/id = 0
+popup/item_1/text = "𝅘𝅥"
+popup/item_1/id = 1
+popup/item_2/text = "𝅘𝅥 𝅘𝅥"
+popup/item_2/id = 2
+popup/item_3/text = "𝅘𝅥 𝅘𝅥 𝅘𝅥"
+popup/item_3/id = 3
+popup/item_4/text = "𝅘𝅥 𝅘𝅥 𝅘𝅥 𝅘𝅥"
+popup/item_4/id = 4
+
+[node name="Rhythm3" type="OptionButton" parent="_RhythmContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_oohtj")
+selected = 0
+item_count = 5
+popup/item_0/text = "𝄽"
+popup/item_0/id = 0
+popup/item_1/text = "𝅘𝅥"
+popup/item_1/id = 1
+popup/item_2/text = "𝅘𝅥 𝅘𝅥"
+popup/item_2/id = 2
+popup/item_3/text = "𝅘𝅥 𝅘𝅥 𝅘𝅥"
+popup/item_3/id = 3
+popup/item_4/text = "𝅘𝅥 𝅘𝅥 𝅘𝅥 𝅘𝅥"
+popup/item_4/id = 4
+
+[node name="Rhythm4" type="OptionButton" parent="_RhythmContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_oohtj")
+selected = 0
+item_count = 5
+popup/item_0/text = "𝄽"
+popup/item_0/id = 0
+popup/item_1/text = "𝅘𝅥"
+popup/item_1/id = 1
+popup/item_2/text = "𝅘𝅥 𝅘𝅥"
+popup/item_2/id = 2
+popup/item_3/text = "𝅘𝅥 𝅘𝅥 𝅘𝅥"
+popup/item_3/id = 3
+popup/item_4/text = "𝅘𝅥 𝅘𝅥 𝅘𝅥 𝅘𝅥"
+popup/item_4/id = 4

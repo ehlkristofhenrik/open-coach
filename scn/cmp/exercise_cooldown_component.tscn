@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqbejuphkhvhh"]
+
+[ext_resource type="Texture2D" uid="uid://di3u0cbp7y0tf" path="res://img/icon/icon_snooze.png" id="1_kiy6w"]
+[ext_resource type="Script" uid="uid://bfn4nu00xnpwd" path="res://src/exercise_cooldown_component.gd" id="1_y6rch"]
+
+[node name="_ExerciseCooldownComponent" type="HBoxContainer"]
+script = ExtResource("1_y6rch")
+
+[node name="_Cooldown" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_kiy6w")
+stretch_mode = 3
+
+[node name="_CooldownContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Minutes" type="SpinBox" parent="_CooldownContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+suffix = "min"
+
+[node name="Seconds" type="SpinBox" parent="_CooldownContainer" groups=["DisableInput"]]
+layout_mode = 2
+size_flags_horizontal = 3
+suffix = "sec"

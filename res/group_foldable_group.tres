@@ -1,0 +1,5 @@
+[gd_resource type="FoldableGroup" format=3 uid="uid://cgkscnx41dqas"]
+
+[resource]
+resource_local_to_scene = false
+allow_folding_all = true

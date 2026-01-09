@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://crigkspw3wt83"]
+
+[ext_resource type="Texture2D" uid="uid://b7uci23ljnvxb" path="res://img/icon/icon_delete.png" id="1_h5piw"]
+[ext_resource type="Script" uid="uid://dquhjopqo4r5u" path="res://src/exercise_group_link.gd" id="1_wru4d"]
+
+[node name="ExerciseGroupLink" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -668.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wru4d")
+
+[node name="Delete" type="Button" parent="."]
+layout_mode = 2
+icon = ExtResource("1_h5piw")
+
+[node name="Link" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="Link" to="." method="_on_link_pressed"]
