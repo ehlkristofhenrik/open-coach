@@ -34,6 +34,16 @@ The ⚙️ settings view is a JSON editor, where you can edit a lot of small det
 - 👐 Open Source
 - 👨‍💻 and Fully Customizable!
 
+## Gallery
+
+Main page:
+<img width="265" height="668" alt="main page" src="https://github.com/user-attachments/assets/3846e580-98dd-4a3e-b20c-4e242dcc2894" />
+
+Exercise Group:
+<img width="265" height="668" alt="image" src="https://github.com/user-attachments/assets/c16c0de2-4459-40d4-9716-ad5b444b34bf" />
+
+JSON Settings:
+<img width="265" height="668" alt="image" src="https://github.com/user-attachments/assets/4bcd3466-c5b5-4b78-b824-66716a248efd" />
 
  
 Proudly made in 🇭🇺.
