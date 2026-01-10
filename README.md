@@ -2,6 +2,8 @@
 
 # 🤜 **Open-Coach** 🤛
 
+![ezgif-64b3f5a64efedeff_opt](https://github.com/user-attachments/assets/df04de99-a1ba-4e02-b977-596caf7d109c)
+
 Open-Coach is an app for practicing ⭐ *ANY* ⭐ skill,
 by having your very own digital coach *boss you around*, for free!
 
@@ -34,6 +36,7 @@ The ⚙️ settings view is a JSON editor, where you can edit a lot of small det
 - 🛜 Offline
 - 🔐 Private and Secure-ish
 - 👐 Open Source
+- 💾 Share your exercises online
 - 🎧 Works well with background audio
 - 👨‍💻 Fully Customizable!
 
@@ -51,5 +54,18 @@ JSON Settings:
 
 <img width="265" height="668" alt="image" src="https://github.com/user-attachments/assets/4bcd3466-c5b5-4b78-b824-66716a248efd" />
 
- 
+## Build instructions
+
+### Android
+
+Download the [Godot]{https://godotengine.org/} game engine and open the code as the project.
+Follow the instructions here: [Export]{https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html}.
+
+### IOS
+
+!! MacOS machine needed to build for IOS !!
+
+Download the [Godot]{https://godotengine.org/} game engine and open the code as the project.
+Follow the instructions here: [Export]{https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_ios.html}.
+
 Proudly made in 🇭🇺.
