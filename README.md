@@ -2,7 +2,11 @@
 
 # 🤜 **Open-Coach** 🤛
 
-<img src="https://github.com/user-attachments/assets/df04de99-a1ba-4e02-b977-596caf7d109c" height=400>
+
+
+https://github.com/user-attachments/assets/55c2019c-9fe6-4f20-9af2-3d8944dba2b4
+
+
 
 Open-Coach is an app for practicing ⭐ *ANY* ⭐ skill,
 by having your very own digital coach *boss you around*, for free!
