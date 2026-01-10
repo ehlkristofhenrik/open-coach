@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdelgb5ffs0gp"]
+[gd_scene load_steps=8 format=3 uid="uid://cdelgb5ffs0gp"]
 
 [ext_resource type="Script" uid="uid://fb1p5d8vk8fj" path="res://src/main.gd" id="1_vnkvy"]
 [ext_resource type="PackedScene" uid="uid://kaajqjlxn8se" path="res://scn/tab/main_tab.tscn" id="2_315pe"]
@@ -8,12 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://b123d10rlusx5" path="res://img/icon/icon_exercise.png" id="4_nq6di"]
 [ext_resource type="Texture2D" uid="uid://dmvoam7eemi3v" path="res://img/icon/icon_home.png" id="4_vnkvy"]
 
-[sub_resource type="Environment" id="Environment_315pe"]
-background_mode = 3
-glow_enabled = true
-glow_strength = 1.52
-glow_blend_mode = 0
-
 [node name="Main" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,9 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vnkvy")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_315pe")
 
 [node name="Tabs" type="TabContainer" parent="."]
 layout_mode = 2

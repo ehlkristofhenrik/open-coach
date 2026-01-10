@@ -14,8 +14,10 @@ config/name="OpenCoach"
 run/main_scene="uid://cdelgb5ffs0gp"
 config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=30
+run/low_processor_mode=true
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://icon.svg"
+boot_splash/image="uid://b8dkywokfilf6"
+config/icon="uid://gswrjpmtlwa7"
 
 [autoload]
 
@@ -26,10 +28,13 @@ Conf="*res://src/conf.gd"
 
 window/size/viewport_width=280
 window/size/viewport_height=700
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/qr_code/plugin.cfg")
+enabled=PackedStringArray()
 
 [global_group]
 

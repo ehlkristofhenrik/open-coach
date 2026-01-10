@@ -8,4 +8,7 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	_ready()
 	var quotes = Conf.config['quotes']
-	Quote.text = quotes[randi_range(0, quotes.size()-1)]
+	if not quotes.is_empty():
+		Quote.text = quotes[randi_range(0, quotes.size()-1)]
+	else:
+		Quote.text = ""	

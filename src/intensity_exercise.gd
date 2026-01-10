@@ -26,7 +26,7 @@ func from_data( data: Dictionary ) -> void:
 func play() -> void:
 	FeedbackComponent.play( DurationComponent.total_duration )
 	for i in range(0, 9):
-		Input.vibrate_handheld( 100 * int(DurationComponent.total_duration / 9), IntensityComponent.get_intensity(i) )
+		Input.vibrate_handheld( 1000 * int(DurationComponent.total_duration / 9), IntensityComponent.get_intensity(i) )
 		await Util.wait( DurationComponent.total_duration / 9 )
 	if FeedbackComponent.is_playing:
 		await FeedbackComponent.finished_playing

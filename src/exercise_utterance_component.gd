@@ -16,18 +16,17 @@ func to_data() -> Dictionary:
 		'max': Max.value
 	}
 
-func __generate_permutation( arr: Array ) -> Array:
+func __generate_permutation( arr: Array ) -> String:
 	var N: int = randi_range( 1, arr.size()-1 )
-	arr.pick_random()
-	var ret: Array = []
+	var ret: String = ""
 	for i in range( N ):
-		ret.append( arr[ randi_range( 0, arr.size()-1 ) ] )
+		ret += arr[ randi_range( 0, arr.size()-1 ) ]
 		arr.remove_at( i )
 	return ret
 
 func get_random() -> String:
 	var pattern_selection = Array( Pattern.text.split(';') ).pick_random()
-	var sub_pattern = Array(pattern_selection.split(',')).pick_random()
+	var sub_pattern = __generate_permutation(pattern_selection.split(','))
 	return sub_pattern
 
 func get_min() -> int:
