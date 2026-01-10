@@ -6,6 +6,8 @@ enum ExerciseType {
 	REACTION_EXERCISE  = 2,
 }
 
+signal resumed
+
 var tts_is_speaking: bool = false
 signal tts_finished
 

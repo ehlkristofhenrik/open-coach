@@ -68,6 +68,7 @@ func _on_play_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		if get_tree().paused:
 			get_tree().paused = false
+			Util.resumed.emit()
 		else:
 			play()
 	else:

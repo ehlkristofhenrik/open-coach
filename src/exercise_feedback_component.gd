@@ -21,9 +21,9 @@ func play( duration: float ) -> void:
 	tween.tween_property(Progress, "value", 0, duration)
 	tween.parallel().tween_method(func(time): 
 		if Display.text != Util.time_to_str(time):
-			if int(time) % Conf.config['tts']['announce_every'] == 0:
+			if int(time) % int(Conf.config['tts']['announce_every']) == 0:
 				Util.tts_speak(Util.time_to_tts(time))
-			elif int(time) <= Conf.config['tts']['announce_last']:
+			elif int(time) <= int(Conf.config['tts']['announce_last']):
 				Util.tts_speak(Util.time_to_tts(time))
 			Display.text = Util.time_to_str(time)
 		, duration, 0, duration)

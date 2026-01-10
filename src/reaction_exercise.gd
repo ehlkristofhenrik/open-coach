@@ -28,6 +28,8 @@ func play() -> void:
 	FeedbackComponent.play( DurationComponent.total_duration )
 	var total_duration: float = DurationComponent.total_duration
 	while total_duration > 0:
+		if get_tree().paused:
+			await Util.resumed
 		var time: int = randi_range( UtteranceComponent.get_min(), UtteranceComponent.get_max() )
 		Util.tts_speak(UtteranceComponent.get_random())
 		await Util.wait( time )

@@ -29,6 +29,8 @@ func play() -> void:
 		seconds = DurationLoopsComponent.get_total_duration()
 	FeeedbackComponent.play( seconds )
 	for i in range( seconds ):
+		if get_tree().paused:
+			await Util.resumed
 		var rhythm = RhythmComponent.get_rhyhtm( i % 4 )
 		match rhythm:
 			0:
