@@ -1,8 +1,8 @@
-![open-coach](https://github.com/user-attachments/assets/b4700b42-09e0-42bf-a8b1-9756c7d4a6d7)
+<img src="https://github.com/user-attachments/assets/b4700b42-09e0-42bf-a8b1-9756c7d4a6d7" height=200>
 
 # 🤜 **Open-Coach** 🤛
 
-![ezgif-64b3f5a64efedeff_opt](https://github.com/user-attachments/assets/df04de99-a1ba-4e02-b977-596caf7d109c)
+<img src="https://github.com/user-attachments/assets/df04de99-a1ba-4e02-b977-596caf7d109c" height=400>
 
 Open-Coach is an app for practicing ⭐ *ANY* ⭐ skill,
 by having your very own digital coach *boss you around*, for free!
@@ -40,32 +40,18 @@ The ⚙️ settings view is a JSON editor, where you can edit a lot of small det
 - 🎧 Works well with background audio
 - 👨‍💻 Fully Customizable!
 
-## Gallery
-
-Main page:
-
-<img width="265" height="668" alt="main page" src="https://github.com/user-attachments/assets/3846e580-98dd-4a3e-b20c-4e242dcc2894" />
-
-Exercise Group:
-
-<img width="265" height="668" alt="image" src="https://github.com/user-attachments/assets/c16c0de2-4459-40d4-9716-ad5b444b34bf" />
-
-JSON Settings:
-
-<img width="265" height="668" alt="image" src="https://github.com/user-attachments/assets/4bcd3466-c5b5-4b78-b824-66716a248efd" />
-
 ## Build instructions
 
 ### Android
 
-Download the [Godot]{https://godotengine.org/} game engine and open the code as the project.
-Follow the instructions here: [Export]{https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html}.
+Download the [Godot](https://godotengine.org/) game engine and open the code as the project.
+Follow the instructions here: [Export](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html).
 
 ### IOS
 
 !! MacOS machine needed to build for IOS !!
 
-Download the [Godot]{https://godotengine.org/} game engine and open the code as the project.
-Follow the instructions here: [Export]{https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_ios.html}.
+Download the [Godot](https://godotengine.org/) game engine and open the code as the project.
+Follow the instructions here: [Export](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_ios.html).
 
 Proudly made in 🇭🇺.
