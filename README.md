@@ -2,8 +2,6 @@
 
 # 🤜 **Open-Coach** 🤛
 
-☢️ In development ☢️
-
 Open-Coach is an app for practicing ⭐ *ANY* ⭐ skill,
 by having your very own digital coach *boss you around*, for free!
 
