@@ -11,16 +11,13 @@ grow_vertical = 2
 script = ExtResource("1_xv2xc")
 metadata/_tab_index = 0
 
-[node name="Button" type="TextureButton" parent="."]
-modulate = Color(0.3167846, 0.31678477, 0.31678468, 1)
+[node name="Background" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 6
 
 [node name="Quote" type="Label" parent="."]
 layout_mode = 1
@@ -46,4 +43,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Background" to="." method="_on_background_pressed"]

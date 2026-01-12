@@ -1,10 +1,13 @@
 extends TabBar
 
-@onready var Speed: HSlider = $VBoxContainer/TTSVoice/_Speed/Speed
-@onready var Voice: OptionButton = $VBoxContainer/TTSVoice/_Voice/Voice
-@onready var Every: SpinBox = $VBoxContainer/TTSVoice/_Every/Every
-@onready var Last: SpinBox = $VBoxContainer/TTSVoice/_Every/Last
-@onready var Quotes: TextEdit = $VBoxContainer/Quotes
+@onready var Speed: HSlider = $_Container/TTSVoice/_Speed/Speed
+@onready var Voice: OptionButton = $_Container/TTSVoice/_Voice/Voice
+@onready var Every: SpinBox = $_Container/TTSVoice/_Every/Every
+@onready var Last: SpinBox = $_Container/TTSVoice/_Every/Last
+@onready var Quotes: TextEdit = $_Container/Quotes
+@onready var Volume: HSlider = $_Container/_Volume/Volume
+@onready var VolumeBeep: HSlider = $_Container/_VolumeBeep/VolumeBeep
+@onready var Background: OptionButton = $_Container/Background
 
 func _ready() -> void:
 	await Util.wait(0.1)
@@ -12,8 +15,13 @@ func _ready() -> void:
 	Every.value = Conf.config["tts"]["announce_every"]
 	Last.value = Conf.config["tts"]["announce_last"]
 	Quotes.text = "".join(Conf.config["quotes"])
+	Volume.value = AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("Master"))
+	VolumeBeep.value = AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("Beep"))
 	for voice in DisplayServer.tts_get_voices():
 		Voice.add_item(voice['id'])
+	for file in DirAccess.get_files_at("res://img/background"):
+		if file.ends_with(".png"):
+			Background.add_item(file)
 	
 
 
@@ -47,17 +55,5 @@ func _on_volume_ring_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(index, value)
 
 
-func _on_background_pressed() -> void:
-	DisplayServer.file_dialog_show(
-		"Background", 
-		"/", 
-		"", 
-		false, 
-		DisplayServer.FILE_DIALOG_MODE_OPEN_FILE, 
-		PackedStringArray([ "*.png","*.jpg"]),
-		func(status, path, _filter): 
-			if status:
-				Conf.config['background'] = path
-				Conf.save_config(), 
-		0
-	)
+func _on_background_item_selected(index: int) -> void:
+	Conf.config['background'] = Background.get_item_text(index)

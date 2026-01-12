@@ -30,7 +30,7 @@ func play() -> void:
 	for i in range(0, 9):
 		if get_tree().paused:
 			await Util.resumed
-		Beep.volume_linear = IntensityComponent.get_intensity(i)
+		Beep.pitch_scale = IntensityComponent.get_intensity(i)
 		Input.vibrate_handheld( 1000 * int(DurationComponent.total_duration / 9), IntensityComponent.get_intensity(i) )
 		await Util.wait( DurationComponent.total_duration / 9 )
 	if FeedbackComponent.is_playing:

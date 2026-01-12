@@ -18,7 +18,7 @@ const DEFAULT_CONFIG = {
 	"exercise_groups": {
 		
 	},
-	"background": "res://img/open-coach-inverted.png",
+	"background": "Bodybuilding_Male"
 }
 
 
@@ -38,7 +38,7 @@ func save_config() -> void:
 	file.close()
 
 func load_config() -> void:
-	#DirAccess.remove_absolute(CONF_FILE_PATH)
+	# DirAccess.remove_absolute(CONF_FILE_PATH)
 	if FileAccess.file_exists(CONF_FILE_PATH):
 		var file: FileAccess = FileAccess.open_encrypted_with_pass(CONF_FILE_PATH, FileAccess.READ, CONF_FILE_PASS)
 		var json = file.get_as_text()
