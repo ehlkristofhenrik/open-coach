@@ -4,8 +4,13 @@
 
 
 
-https://github.com/user-attachments/assets/55c2019c-9fe6-4f20-9af2-3d8944dba2b4
+https://github.com/user-attachments/assets/53568636-9c0a-4c8d-b41c-6ee170261e99
 
+### New in V2.0.0
+- Pocket safe mode button
+- Settings UI
+- Volume settings
+- Preset backgrounds for inspiration
 
 
 Open-Coach is an app for practicing ⭐ *ANY* ⭐ skill,
