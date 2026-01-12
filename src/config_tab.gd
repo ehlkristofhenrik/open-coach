@@ -11,3 +11,8 @@ func _on_copy_pressed() -> void:
 
 func _on_save_pressed() -> void:
 	Conf.config = JSON.parse_string(Content.text)
+
+func _on_reset_pressed() -> void:
+	Conf.config = Conf.DEFAULT_CONFIG.duplicate(true)
+	_ready()
+	

@@ -5,21 +5,24 @@ const CONF_FILE_PASS = "xmx0-d1l9p-CouchCoach"
 
 var selected_exercise_group: String = ""
 
-var config = {
+const DEFAULT_CONFIG = {
 	"tts": {
-		"volume": 100,
 		"rate": 1.0,
-		"pitch": 1.0,
 		"voice": "",
 		"announce_every": 15,
 		"announce_last": 10,
 	},
-	"quotes": [ ],
+	"quotes": [
+		"Open Coach"
+	],
 	"exercise_groups": {
 		
 	},
-	"background": ""
-}:
+	"background": "res://img/open-coach-inverted.png",
+}
+
+
+var config = DEFAULT_CONFIG.duplicate(true):
 	set(value):
 		config = value
 		save_config()
@@ -35,7 +38,7 @@ func save_config() -> void:
 	file.close()
 
 func load_config() -> void:
-	# DirAccess.remove_absolute(CONF_FILE_PATH)
+	#DirAccess.remove_absolute(CONF_FILE_PATH)
 	if FileAccess.file_exists(CONF_FILE_PATH):
 		var file: FileAccess = FileAccess.open_encrypted_with_pass(CONF_FILE_PATH, FileAccess.READ, CONF_FILE_PASS)
 		var json = file.get_as_text()

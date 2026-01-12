@@ -5,6 +5,7 @@
 @onready var CooldownComponent: ExerciseCooldownComponent = $_Body/_ExerciseCooldownComponent
 @onready var RhythmComponent: ExerciseRhythmComponent = $_Body/_ExerciseRhythmComponent
 @onready var FeeedbackComponent: ExerciseFeedbackComponent = $_Body/_ExerciseFeedbackComponent
+@onready var Beep: AudioStreamPlayer = $Beep
 
 func to_data() -> Dictionary:
 	return {
@@ -37,27 +38,37 @@ func play() -> void:
 				await Util.wait( 1 )
 			1:
 				Input.vibrate_handheld(100)
+				Beep.play()
 				await Util.wait( 1 )
 			2:
 				Input.vibrate_handheld(100)
+				Beep.play()
 				await Util.wait( .5 )
 				Input.vibrate_handheld(100)
+				Beep.play()
 				await Util.wait( .5 )
 			3:
 				Input.vibrate_handheld(100)
+				Beep.play()
 				await Util.wait( .333 )
 				Input.vibrate_handheld(100)
+				Beep.play()
 				await Util.wait( .333 )
 				Input.vibrate_handheld(100 )
+				Beep.play()
 				await Util.wait( .333 )
 			4:
 				Input.vibrate_handheld(100)
+				Beep.play()
 				await Util.wait( .4 )
 				Input.vibrate_handheld(100)
+				Beep.play()
 				await Util.wait( .4  )
 				Input.vibrate_handheld(100 )
+				Beep.play()
 				await Util.wait( .4  )
 				Input.vibrate_handheld(100)
+				Beep.play()
 				await Util.wait( .4 )
 	if FeeedbackComponent.is_playing:
 		await FeeedbackComponent.finished_playing

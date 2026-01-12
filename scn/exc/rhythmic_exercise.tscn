@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c67tdy5p3q7cb"]
+[gd_scene load_steps=10 format=3 uid="uid://c67tdy5p3q7cb"]
 
 [ext_resource type="Script" uid="uid://b8450x00kqwq3" path="res://src/rhythmic_exercise.gd" id="1_axxx5"]
 [ext_resource type="FoldableGroup" uid="uid://diccdc6glths2" path="res://res/foldable_group.tres" id="2_cbweb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ck3nfu6g4b7ih" path="res://img/icon/icon_music_note.png" id="5_u0u5r"]
 [ext_resource type="PackedScene" uid="uid://sg82jt6vi08a" path="res://scn/cmp/exercise_rhythm_component.tscn" id="6_v4tew"]
 [ext_resource type="PackedScene" uid="uid://dgyyjmtjlog3a" path="res://scn/cmp/exercise_feedback_component.tscn" id="7_ysx47"]
+[ext_resource type="AudioStream" uid="uid://brtm25msibn3m" path="res://snd/beep.wav" id="9_j2dlj"]
 
 [node name="RhythmicExercise" type="FoldableContainer"]
 process_mode = 1
@@ -42,3 +43,7 @@ layout_mode = 2
 
 [node name="_ExerciseFeedbackComponent" parent="_Body" instance=ExtResource("7_ysx47")]
 layout_mode = 2
+
+[node name="Beep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_j2dlj")
+bus = &"Beep"

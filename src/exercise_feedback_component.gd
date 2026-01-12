@@ -2,6 +2,7 @@ class_name ExerciseFeedbackComponent extends VBoxContainer
 
 @onready var Display = $Display
 @onready var Progress: ProgressBar = $Progress
+@onready var Beep: AudioStreamPlayer = $Beep
 
 signal finished_playing
 signal finished_playing_indeterminate
@@ -31,7 +32,6 @@ func play( duration: float ) -> void:
 		finished_playing.emit()
 	)
 
-
 func play_indeterminate( duration: float ) -> void:
 	var tween: Tween = create_tween()
 	is_playing_indeterminate = true
@@ -41,5 +41,5 @@ func play_indeterminate( duration: float ) -> void:
 	tween.chain().tween_callback(func():
 		Progress.indeterminate = false
 		finished_playing_indeterminate.emit()
-		DisplayServer.beep()
+		Beep.play()
 	)

@@ -41,8 +41,8 @@ func tts_speak( utterance: String ):
 	DisplayServer.tts_speak( 
 		utterance, 
 		Conf.config['tts']['voice'], 
-		Conf.config['tts']['volume'],
-		Conf.config['tts']['pitch'],
+		100,
+		1.0,
 		Conf.config['tts']['rate'],
 		0,
 		true

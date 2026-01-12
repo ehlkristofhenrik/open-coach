@@ -5,6 +5,7 @@
 @onready var IntensityComponent: ExerciseIntensityComponent = $_Body/_ExerciseIntensityComponent
 @onready var CooldownComponent: ExerciseCooldownComponent = $_Body/_ExerciseCooldownComponent
 @onready var FeedbackComponent: ExerciseFeedbackComponent = $_Body/_ExerciseFeedbackComponent
+@onready var Beep: AudioStreamPlayer = $Beep
 
 func to_data() -> Dictionary:	
 	return {
@@ -24,14 +25,17 @@ func from_data( data: Dictionary ) -> void:
 	CooldownComponent.from_data( data['cooldown_component'] )
 
 func play() -> void:
+	Beep.play()
 	FeedbackComponent.play( DurationComponent.total_duration )
 	for i in range(0, 9):
 		if get_tree().paused:
 			await Util.resumed
+		Beep.volume_linear = IntensityComponent.get_intensity(i)
 		Input.vibrate_handheld( 1000 * int(DurationComponent.total_duration / 9), IntensityComponent.get_intensity(i) )
 		await Util.wait( DurationComponent.total_duration / 9 )
 	if FeedbackComponent.is_playing:
 		await FeedbackComponent.finished_playing
+	Beep.stop()
 	FeedbackComponent.play_indeterminate( CooldownComponent.total_duration )
 	if FeedbackComponent.is_playing_indeterminate:
 		await FeedbackComponent.finished_playing_indeterminate

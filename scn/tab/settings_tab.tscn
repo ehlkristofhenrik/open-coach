@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1qviyix527d7"]
+
+[ext_resource type="Script" uid="uid://cohhes00tk6ft" path="res://src/settings_tab.gd" id="1_116t6"]
+[ext_resource type="Texture2D" uid="uid://bieeasvlr4tt3" path="res://img/icon/icon_volume.png" id="1_o7gi8"]
+[ext_resource type="Texture2D" uid="uid://cs4n84shwnlyn" path="res://img/icon/icon_speed.png" id="2_lxlom"]
+[ext_resource type="Texture2D" uid="uid://cqjubpqayfa8v" path="res://img/icon/icon_ring_volume.png" id="3_k53ow"]
+[ext_resource type="Texture2D" uid="uid://ccrkra67a6bh1" path="res://img/icon/icon_lang.png" id="3_oti85"]
+[ext_resource type="Texture2D" uid="uid://bmfe3k2spgkdw" path="res://img/icon/icon_whistle.png" id="4_d55w6"]
+[ext_resource type="Texture2D" uid="uid://dcotqk74hqg2i" path="res://img/icon/icon_picture.png" id="7_7spst"]
+
+[node name="SettingsTab" type="TabBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_116t6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="__Volume" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="_Volume" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="_Volume" type="TextureRect" parent="VBoxContainer/_Volume"]
+layout_mode = 2
+texture = ExtResource("1_o7gi8")
+
+[node name="Volume" type="HSlider" parent="VBoxContainer/_Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="_VolumeBeep" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="_VolumeBeep" type="TextureRect" parent="VBoxContainer/_VolumeBeep"]
+layout_mode = 2
+texture = ExtResource("3_k53ow")
+
+[node name="VolumeBeep" type="HSlider" parent="VBoxContainer/_VolumeBeep"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="__TTS" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "TTS"
+horizontal_alignment = 1
+
+[node name="TTSVoice" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="_Speed" type="HBoxContainer" parent="VBoxContainer/TTSVoice"]
+layout_mode = 2
+
+[node name="_Speed" type="TextureRect" parent="VBoxContainer/TTSVoice/_Speed"]
+layout_mode = 2
+texture = ExtResource("2_lxlom")
+
+[node name="Speed" type="HSlider" parent="VBoxContainer/TTSVoice/_Speed"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 2.0
+step = 0.01
+
+[node name="_Voice" type="HBoxContainer" parent="VBoxContainer/TTSVoice"]
+layout_mode = 2
+
+[node name="_Voice" type="TextureRect" parent="VBoxContainer/TTSVoice/_Voice"]
+layout_mode = 2
+texture = ExtResource("3_oti85")
+
+[node name="Voice" type="OptionButton" parent="VBoxContainer/TTSVoice/_Voice"]
+layout_mode = 2
+size_flags_horizontal = 3
+fit_to_longest_item = false
+
+[node name="_Every" type="HBoxContainer" parent="VBoxContainer/TTSVoice"]
+layout_mode = 2
+
+[node name="_Voice" type="TextureRect" parent="VBoxContainer/TTSVoice/_Every"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_d55w6")
+stretch_mode = 2
+
+[node name="Every" type="SpinBox" parent="VBoxContainer/TTSVoice/_Every"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 60.0
+prefix = "every:"
+suffix = "sec"
+
+[node name="Last" type="SpinBox" parent="VBoxContainer/TTSVoice/_Every"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 60.0
+prefix = "last:"
+suffix = "sec"
+
+[node name="Background" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "set background"
+icon = ExtResource("7_7spst")
+
+[node name="_Quotes" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quotes"
+horizontal_alignment = 1
+
+[node name="Quotes" type="TextEdit" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Couch Coach"
+
+[connection signal="value_changed" from="VBoxContainer/_Volume/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/_VolumeBeep/VolumeBeep" to="." method="_on_volume_ring_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/TTSVoice/_Voice/Voice" to="." method="_on_voice_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/TTSVoice/_Every/Every" to="." method="_on_every_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/TTSVoice/_Every/Last" to="." method="_on_last_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Background" to="." method="_on_background_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Quotes" to="." method="_on_quotes_text_changed"]

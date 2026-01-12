@@ -15,6 +15,7 @@ class_name ExerciseGroup extends Control
 @onready var NameComponent: ExerciseNameComponent = $_Body/_ExerciseNameComponent
 @onready var Scroll: ScrollContainer = $_Body/_ScrollContainer
 @onready var Play: TextureButton = $_Body/_Actions/Play
+@onready var ScreenLock: ColorRect = $ScreenLock
 
 func _ready() -> void:
 	if Conf.config['exercise_groups'].has(Conf.selected_exercise_group):
@@ -89,3 +90,8 @@ func _on_quit_pressed() -> void:
 func _on_save_pressed() -> void:
 	Conf.config['exercise_groups'][Conf.selected_exercise_group] = to_data()
 	Conf.save_config()
+
+
+func _on_lock_pressed() -> void:
+	ScreenLock.visible = true
+	ScreenLock.mouse_filter = Control.MOUSE_FILTER_STOP

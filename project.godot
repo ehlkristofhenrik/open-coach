@@ -40,6 +40,10 @@ enabled=PackedStringArray()
 
 DisableInput="Input controls that need to be disabled"
 
+[gui]
+
+theme/custom_font="uid://qkjesphhe7uq"
+
 [rendering]
 
 renderer/rendering_method="mobile"

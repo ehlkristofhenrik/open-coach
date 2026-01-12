@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cmcagwby2pyhg"]
+[gd_scene load_steps=21 format=3 uid="uid://cmcagwby2pyhg"]
 
 [ext_resource type="Script" uid="uid://cwj6nx4f326ej" path="res://src/exercise_group.gd" id="1_1n2wj"]
 [ext_resource type="Texture2D" uid="uid://c06guk05otmmu" path="res://img/icon/icon_add.png" id="1_gjbkt"]
@@ -15,7 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://8jagutk0ttn" path="res://img/icon/icon_play.png" id="15_2nm2a"]
 [ext_resource type="Texture2D" uid="uid://co4i8wt3xwumn" path="res://img/icon/icon_save.png" id="16_aawkn"]
 [ext_resource type="Texture2D" uid="uid://c82hqxu33visb" path="res://img/icon/icon_pause.png" id="16_huntf"]
+[ext_resource type="Texture2D" uid="uid://drg47twakbqyb" path="res://img/icon/icon_mobile_lock.png" id="17_2nm2a"]
 [ext_resource type="Texture2D" uid="uid://drg3j1o2n3aew" path="res://img/icon/icon_stop.png" id="17_cfrs2"]
+[ext_resource type="Shader" uid="uid://7jyco6otc6yy" path="res://shd/blur.gdshader" id="18_cfrs2"]
+[ext_resource type="Script" uid="uid://dt6ohd30ffxki" path="res://src/screen_lock.gd" id="18_huntf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4xik5"]
+shader = ExtResource("18_cfrs2")
+shader_parameter/blur_amount = 4.00000019
 
 [node name="ExerciseGroup" type="Control"]
 layout_mode = 3
@@ -106,6 +113,10 @@ layout_mode = 2
 texture_normal = ExtResource("16_aawkn")
 stretch_mode = 3
 
+[node name="Lock" type="Button" parent="_Body/_Actions"]
+layout_mode = 2
+icon = ExtResource("17_2nm2a")
+
 [node name="_ScrollContainer" type="ScrollContainer" parent="_Body"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
@@ -117,8 +128,38 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="ScreenLock" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_4xik5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0)
+script = ExtResource("18_huntf")
+
+[node name="Unlock" type="HSlider" parent="ScreenLock"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/grabber_offset = -15
+theme_override_icons/grabber = ExtResource("17_2nm2a")
+theme_override_icons/grabber_highlight = ExtResource("17_2nm2a")
+theme_override_icons/grabber_disabled = ExtResource("17_2nm2a")
+
 [connection signal="pressed" from="_Body/Quit" to="." method="_on_quit_pressed"]
 [connection signal="text_changed" from="_Body/_ExerciseNameComponent/Name" to="_Body/_ExerciseNameComponent" method="_on_name_text_changed"]
 [connection signal="toggled" from="_Body/_Actions/Play" to="." method="_on_play_toggled"]
 [connection signal="pressed" from="_Body/_Actions/Stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="_Body/_Actions/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="_Body/_Actions/Lock" to="." method="_on_lock_pressed"]
+[connection signal="value_changed" from="ScreenLock/Unlock" to="ScreenLock" method="_on_unlock_value_changed"]
